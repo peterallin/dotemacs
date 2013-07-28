@@ -1,0 +1,6 @@
+template <typename $1>
+class $2
+{
+public:
+  $2($3);
+};
