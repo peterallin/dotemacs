@@ -1,4 +1,4 @@
-(set-variable 'new-dotemacs-dir (file-name-directory (buffer-file-name)))
+(set-variable 'new-dotemacs-dir (file-name-directory (or load-file-name buffer-file-name)))
 (set-variable 'thirdparty-dir (file-name-as-directory (concat new-dotemacs-dir "third-party")))
 (set-variable 'local-dir (file-name-as-directory (concat new-dotemacs-dir "local")))
 (set-variable 'new-dotemacs-file (concat new-dotemacs-dir ".emacs"))
@@ -13,6 +13,8 @@
 ;; Write a .emacs file, that will load the actual initialization
 ;; file, in the users home directory
 (with-temp-buffer
+  (insert "(custom-set-variables)\n")
+  (insert "(custom-set-faces)\n\n")
   (insert (format "(add-to-list 'load-path \"%s\")\n" thirdparty-dir))
   (insert (format "(add-to-list 'load-path \"%s\")\n" local-dir))
   (insert (format "(set-variable 'thirdparty-path \"%s\")\n" thirdparty-dir))
