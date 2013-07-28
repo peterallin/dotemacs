@@ -17,6 +17,7 @@
 (set-variable 'inhibit-splash-screen t)
 (tooltip-mode 0)
 (tool-bar-mode 0)
+(add-to-list 'custom-theme-load-path (concat thirdparty-path "emacs-color-theme-solarized"))
 (load-theme 'solarized-dark)
 
 ;; Basic behaviour
